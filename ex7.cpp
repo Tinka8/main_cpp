@@ -7,6 +7,7 @@ int main() {
     int count = 0;
     float avg = 0;
     float sum = 0;
+    string name;
 
     cout << "pocet studentov: ";
     cin >> count;
@@ -31,6 +32,18 @@ int main() {
         cout << averageStudents[m] << endl;
     }
 
+    cout << endl;
+    // ask for name 
+    cout << "vyhladaj ziaka podla mena: ";
+    cin >> name;
+    // print name and average
+    for (int p = 0; p < count; p++) {
+        if (name == nameStudents[p])
+            cout << nameStudents[p] << " " << averageStudents[p];
+    }
+
+
+    cout << endl;
     // average
     for (int i = 0; i < count; i++) {
         sum = averageStudents[i] + sum;
@@ -38,13 +51,13 @@ int main() {
 
     cout << endl;
     avg = sum / count;
-    cout <<  "average: " << avg;
+    cout <<  "priemer: " << avg;
 
     cout << endl;
     // highest averages
     for (int n = 0; n < count; n++) {
-        if (averageStudents[n] > avg) {
-            cout << averageStudents[n] << endl;
+        if (averageStudents[n] < avg) {
+            cout << "lepsi ako priemer: " << nameStudents[n] << " " << averageStudents[n] << endl;
         }
     }
 
